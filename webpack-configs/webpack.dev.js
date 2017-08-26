@@ -1,7 +1,7 @@
+// Core dependencies
 const path = require('path');
 
-const DashboardPlugin = require('webpack-dashboard/plugin');
-
+// Require common webpack configuration
 const compiler = require('../webpack.config.js').compiler;
 const THEME_NAME = require('../webpack.config.js').THEME_NAME;
 
@@ -10,29 +10,23 @@ compiler.devtool = 'eval-source-map';
 
 // Set proxy configurations to access WordPress
 const proxyConfig = {
-  "target": {
-    "host": "localhost",
-    "protocol": 'http:',
-    "port": 8080
-  },
+  target: "http://localhost:8080",
   ignorePath: false,
   changeOrigin: true,
   secure: false
 };
 
-compiler.context = path.join(__dirname, '../');
-
-// Add the dashboard GUI plugin
-compiler.plugins.push(new DashboardPlugin());
+// Ensure context is set to root folder
+compiler.context = path.join( __dirname, '../' );
 
 // Development server configuration
 compiler.devServer = {
   contentBase: `./wordpress/wp-content/themes/${THEME_NAME}/assets`,
-  outputPath: path.join( __dirname, `../wordpress/wp-content/themes/${THEME_NAME}/assets` ),
   proxy: {
     '/': proxyConfig,
     '**': proxyConfig
-  }
+  },
+  open: true
 };
 
 // Export new webpack settings
