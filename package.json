@@ -27,8 +27,7 @@
   "scripts": {
     "build": "webpack --config webpack-configs/webpack.prod.js",
     "start": "webpack-dashboard -- webpack-dev-server --inline --hot --port=3000 --config webpack-configs/webpack.dev.js",
-    "setup": "wp core download --path='./wordpress'",
-    "postsetup": "wp theme delete $(wp theme list --status=inactive --field=name) && wp plugin delete $(wp plugin list --status=inactive --field=name)"
+    "setup": "wp core download --path='./wordpress'"
   },
   "eslintConfig": {
     "env": {
