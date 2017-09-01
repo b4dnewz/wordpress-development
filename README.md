@@ -83,16 +83,16 @@ npm run start
 
 Once run a browser will load the home page of your site at localhost:3000.
 
-If you see `Error occured while trying to proxy to: localhost:3000/` this mean __your apache websever is not started__.
+If you see `Error occured while trying to proxy to: localhost:3000` this mean __your apache websever is not started__.
 
 ---
 
 ## Development
 ### Styling
-To style your webpages you simply go into the awesome-theme/styling folder. Any SASS styles that are added to these folders will reload in the browser instantaneously.
+To style your webpages you simply go into the theme-name/styling folder. Any SASS styles that are added to these folders will reload in the browser instantaneously.
 
 ### Javascript
-In awesome-theme/index.js you can import any and all javascript that you would like. Import npm packages or import your own files. Take advantage of having a modern ecosystem to create web apps using Wordpress.
+In theme-name/index.js you can import any and all javascript that you would like. Import npm packages or import your own files. Take advantage of having a modern ecosystem to create web apps using Wordpress.
 
 ### PHP and Template Files
 All edits to php files will require a manual refresh to see changes. The hope is that in future versions of this tool that this will no longer be a need, but for now it is a requirement.
