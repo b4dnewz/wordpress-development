@@ -1,7 +1,7 @@
 # Wordpress Webpack
 > wordpress oriented workspace based on webpack
 
-This project aims to bring the best features of the latest tooling to Wordpress theme development. Namely, this project gives you the ability to have hot module replacement provided by Webpack to allow you to develop javascript rich themes that without having to constantly reload the page. Additionally you can import any npm module and have it available on the front-end. This project also allows you to write your styling using SASS and use ES2015, and utilizes the awesome webpack-dashboard tool so you feel cool too.
+This project aims to bring the best features of the latest tooling to Wordpress theme development. Namely, this project gives you the ability to have hot module replacement provided by Webpack to allow you to develop javascript rich themes that without having to constantly reload the page. Additionally you can import any npm module and have it available on the front-end. This project also allows you to write your styling using SASS and use ES2015.
 
 ## Requirements
 
@@ -88,14 +88,18 @@ If you see `Error occured while trying to proxy to: localhost:3000` this mean __
 ---
 
 ## Development
-### Styling
-To style your webpages you simply go into the theme-name/styling folder. Any SASS styles that are added to these folders will reload in the browser instantaneously.
+For the theme development, just change your source files and webpack dev server will do all for you.
 
-### Javascript
-In theme-name/index.js you can import any and all javascript that you would like. Import npm packages or import your own files. Take advantage of having a modern ecosystem to create web apps using Wordpress.
+---
 
-### PHP and Template Files
-All edits to php files will require a manual refresh to see changes. The hope is that in future versions of this tool that this will no longer be a need, but for now it is a requirement.
+## Contributing
+
+1. Create an issue and describe your idea
+2. Fork the project (https://github.com/b4dnewz/wordpress-development/fork)
+3. Create your feature branch (`git checkout -b my-new-feature`)
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Publish the branch (`git push origin my-new-feature`)
+6. Create a new Pull Request
 
 ---
 
@@ -104,7 +108,6 @@ These are a few things that I think would make this tool just that much better
 - [x] simplify project dependencies
 - [x] code linting in development and before build (_with eslint_)
 - [x] upgrade webpack and plugins to last versions
-- [ ] have page refresh when php file is changed, not just sass and js
+- [x] have page refresh when php file is changed, not just sass and js
 - [ ] source maps for sass
-- [ ] __?__ add composer to handle the plugins (php)
 - [ ] adding build test and travis integration for automatic build tests
