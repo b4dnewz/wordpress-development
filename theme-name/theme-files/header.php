@@ -31,9 +31,6 @@
 				<div class="logo unselectable">
 					<div class="site-head">
 							<a href="<?php echo home_url(); ?>">
-								<div class="site-image">
-									<img class="logo-img" src="<?php echo get_template_directory_uri(); ?>/assets/dist/img/logo.png" alt="<?php bloginfo('name'); ?> Logo" />
-								</div>
 								<div class="site-info">
 									<h1 class="site-title"><?php bloginfo('name'); ?></h1>
 									<h2 class="site-description"><?php bloginfo('description'); ?></h2>
@@ -53,3 +50,5 @@
 
 		</header>
 		<!-- /header -->
+
+		<div class="wrapper">

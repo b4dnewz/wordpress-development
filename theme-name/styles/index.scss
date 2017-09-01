@@ -1,4 +1,10 @@
-header {
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
   position: relative;
   text-align: center;
   padding: 25px 0;
@@ -6,7 +12,51 @@ header {
   color: #fff;
   width: 100%;
   z-index: 499;
-  background: #2D3032;
+  background-color: #2D3032;
+
+  h1,
+  h2 {
+    margin: 0;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
-footer {}
+li {
+  list-style: none;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+main {
+  width: 70%;
+  float: left;
+}
+
+aside.sidebar {
+  width: 30%;
+  float: right;
+}
+
+.footer {
+  text-align: center;
+  padding: 25px 0;
+  background-color: #2D3032;
+  color: white;
+
+  a {
+    color: white;
+  }
+}

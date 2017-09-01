@@ -58,8 +58,7 @@ exports.compiler = {
 
       }
     ], {
-      ignore: ['./styles', './scripts', './index.js'],
-      debug: 'debug'
+      ignore: ['./styles', './scripts', './index.js']
     })
 
   ]

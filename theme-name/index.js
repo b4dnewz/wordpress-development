@@ -6,6 +6,4 @@ if( process.env.NODE_ENV === 'development' ) {
 // Add theme style
 import './styles/index.scss'
 
-console.log('yea babbby', process.env.NODE_ENV);
-
 // import any javascript here
