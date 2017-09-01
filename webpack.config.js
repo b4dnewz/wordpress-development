@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const THEME_NAME = 'awesome-theme'
+const THEME_NAME = 'theme-name'
 exports.THEME_NAME = THEME_NAME
 
 // Webpack common configurations
@@ -13,8 +13,7 @@ exports.compiler = {
 
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/wordpress/wp-content/themes/' + THEME_NAME + '/assets',
-    publicPath: '/wp-content/themes/' + THEME_NAME + '/assets'
+    path: path.join( __dirname, '/wordpress/wp-content/themes/' + THEME_NAME + '/assets' )
   },
 
   module: {
@@ -59,7 +58,8 @@ exports.compiler = {
 
       }
     ], {
-      ignore: ['./styles', './scripts', './index.js']
+      ignore: ['./styles', './scripts', './index.js'],
+      debug: 'debug'
     })
 
   ]

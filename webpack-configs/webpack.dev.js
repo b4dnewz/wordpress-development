@@ -1,5 +1,6 @@
 // Core dependencies
 const path = require('path');
+const webpack = require('webpack');
 
 // Require common webpack configuration
 const compiler = require('../webpack.config.js').compiler;
@@ -21,13 +22,22 @@ compiler.context = path.join( __dirname, '../' );
 
 // Development server configuration
 compiler.devServer = {
-  contentBase: `./wordpress/wp-content/themes/${THEME_NAME}/assets`,
+  contentBase: './wordpress/',
+  publicPath: `/wp-content/themes/${THEME_NAME}/assets`,
   proxy: {
     '/': proxyConfig,
     '**': proxyConfig
   },
   open: true
 };
+
+// Add environment variable for conditional requires
+compiler.plugins.push(
+  new webpack.EnvironmentPlugin({
+    NODE_ENV: 'development',
+    DEBUG: true
+  })
+);
 
 // Export new webpack settings
 module.exports = compiler;
