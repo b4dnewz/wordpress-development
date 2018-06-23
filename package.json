@@ -1,9 +1,9 @@
 {
-  "name": "webpack-wordpress",
-  "author": "Sloan Sparger",
-  "version": "0.0.0",
-  "description": "Build Wordpress themes using Webpack and Hot Module Reloading",
-  "main": "index.js",
+  "name": "wordpress-development",
+  "author": "Filippo Conti",
+  "version": "0.1.0",
+  "description": "An advanced WordPress development setup.",
+  "main": "",
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.13.2",
@@ -15,6 +15,7 @@
     "css-loader": "^0.28.5",
     "eslint": "^4.5.0",
     "eslint-loader": "^1.9.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^0.11.2",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
@@ -24,11 +25,11 @@
     "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
-    "build": "webpack --config webpack-configs/webpack.prod.js",
-    "start": "webpack-dev-server --port=3000 --config webpack-configs/webpack.dev.js",
-    "setup": "wp core download --path='./wordpress'"
+    "build": "webpack --config scripts/webpack.prod.js",
+    "start": "webpack-dev-server --config scripts/webpack.dev.js"
   },
   "eslintConfig": {
+    "extends": "eslint:recommended",
     "env": {
       "browser": true,
       "node": true
