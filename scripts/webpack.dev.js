@@ -4,7 +4,6 @@ const webpack = require('webpack');
 
 // Require common webpack configuration
 const compiler = require('../webpack.config.js').compiler;
-const THEME_NAME = require('../webpack.config.js').THEME_NAME;
 
 // Set source map for development mode
 compiler.devtool = 'eval-source-map';
@@ -22,13 +21,13 @@ compiler.context = path.join( __dirname, '../' );
 
 // Development server configuration
 compiler.devServer = {
-  contentBase: './wordpress/',
-  publicPath: `/wp-content/themes/${THEME_NAME}/assets`,
+  publicPath: `/wp-content/themes/theme/assets`,
   proxy: {
     '/': proxyConfig,
     '**': proxyConfig
   },
-  open: true
+  open: true,
+  port: 3000
 };
 
 // Add environment variable for conditional requires

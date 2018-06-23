@@ -1,19 +1,18 @@
 const path = require('path');
-const webpack = require('webpack')
-const autoprefixer = require('autoprefixer')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-
-const THEME_NAME = 'theme-name'
-exports.THEME_NAME = THEME_NAME
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Webpack common configurations
 exports.compiler = {
 
-  entry: `./${THEME_NAME}/index.js`,
+  target: 'web',
+
+  devtool: 'cheap-eval-source-map',
+
+  entry: `./src/index.js`,
 
   output: {
     filename: 'bundle.js',
-    path: path.join( __dirname, '/wordpress/wp-content/themes/' + THEME_NAME + '/assets' )
+    path: path.join(__dirname, `src/theme/assets`)
   },
 
   module: {
@@ -35,32 +34,22 @@ exports.compiler = {
         ]
       }, {
         test: /\.(sass|scss)$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader?sourceMap=inline', 'sass-loader']
-      }, {
-        test: /\.(png|jpg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {}
-          }
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+          { loader: 'css-loader', options: { minimize: true } },
+          'sass-loader'
         ]
+        })
+      }, {
+        test: /\.(png|jpg|gif)$/,
+        use: ['file-loader']
       }
     ]
   },
 
   plugins: [
-
-    new CopyWebpackPlugin([
-      {
-        context: path.join(__dirname, `/${THEME_NAME}/theme-files`),
-        from: './**/*',
-        to: '../.'
-
-      }
-    ], {
-      ignore: ['./styles', './scripts', './index.js']
-    })
-
+    new ExtractTextPlugin('bundle.css')
   ]
 
 }
