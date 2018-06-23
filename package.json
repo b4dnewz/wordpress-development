@@ -6,6 +6,7 @@
   "main": "",
   "dependencies": {},
   "devDependencies": {
+    "autoprefixer": "^8.6.3",
     "babel-core": "^6.13.2",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",
