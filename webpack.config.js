@@ -16,36 +16,37 @@ exports.compiler = {
   },
 
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2015']
-            }
-          }, {
-            loader: 'eslint-loader',
-            options: {
-              fix: true
-            }
-          }
-        ]
+    rules: [{
+      test: /\.js$/,
+      use: [{
+        loader: 'babel-loader',
+        options: {
+          presets: ['es2015']
+        }
       }, {
-        test: /\.(sass|scss)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-          { loader: 'css-loader', options: { minimize: true } },
+        loader: 'eslint-loader',
+        options: {
+          fix: true
+        }
+      }]
+    }, {
+      test: /\.(sass|scss)$/,
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [{
+            loader: 'css-loader',
+            options: {
+              minimize: true
+            }
+          },
+          'postcss-loader',
           'sass-loader'
         ]
-        })
-      }, {
-        test: /\.(png|jpg|gif)$/,
-        use: ['file-loader']
-      }
-    ]
+      })
+    }, {
+      test: /\.(png|jpg|gif)$/,
+      use: ['file-loader']
+    }]
   },
 
   plugins: [
