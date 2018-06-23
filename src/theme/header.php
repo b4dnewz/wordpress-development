@@ -4,10 +4,17 @@
 		<meta charset="<?php bloginfo('charset'); ?>" />
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?>" href="<?php bloginfo('rss2_url'); ?>" />
+
+		<!-- Styles -->
 		<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" media="screen">
+		<link rel="stylesheet" href="<?php echo wp_make_link_relative(get_theme_file_uri('assets/bundle.css')); ?>" media="screen">
+
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script type="text/javascript" src="<?php echo wp_make_link_relative( get_template_directory_uri() . '/assets/bundle.js' ); ?>"></script>
+
+		<!-- scripts -->
+		<script type="text/javascript" src="<?php echo wp_make_link_relative(get_theme_file_uri('assets/bundle.js')); ?>"></script>
+
 		<!-- analytics -->
 		<script>
 			(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
@@ -18,6 +25,7 @@
 			ga('send', 'pageview');
 		</script>
 		<!-- /analytics -->
+
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
