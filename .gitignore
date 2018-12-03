@@ -19,7 +19,8 @@ node_modules/
 jspm_packages/
 
 # Database shared directory
-data
+data/*
+!data/.gitkeep
 
 # Optional npm cache directory
 .npm
