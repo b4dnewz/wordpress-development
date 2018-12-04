@@ -1,7 +1,7 @@
 {
   "name": "wordpress-development",
   "author": "Filippo <b4dnewz> Conti",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "An advanced WordPress development setup.",
   "scripts": {
     "build": "webpack --config scripts/webpack.prod.js",
