@@ -1,12 +1,6 @@
-// Core dependencies
 const path = require('path');
 const webpack = require('webpack');
-
-// Require common webpack configuration
-const compiler = require('../webpack.config.js').compiler;
-
-// Set source map for development mode
-compiler.devtool = 'eval-source-map';
+const compiler = require('./webpack.base').compiler;
 
 // Set proxy configurations to access WordPress
 const proxyConfig = {
@@ -17,7 +11,10 @@ const proxyConfig = {
 };
 
 // Ensure context is set to root folder
-compiler.context = path.join( __dirname, '../' );
+compiler.context = path.join(__dirname, '../');
+
+// Set source map for development mode
+compiler.devtool = 'eval-source-map';
 
 // Development server configuration
 compiler.devServer = {
@@ -26,17 +23,11 @@ compiler.devServer = {
     '/': proxyConfig,
     '**': proxyConfig
   },
-  open: true,
   port: 3000
 };
 
 // Add environment variable for conditional requires
-compiler.plugins.push(
-  new webpack.EnvironmentPlugin({
-    NODE_ENV: 'development',
-    DEBUG: true
-  })
-);
+compiler.plugins.push(new webpack.EnvironmentPlugin({NODE_ENV: 'development', DEBUG: true}));
 
 // Export new webpack settings
 module.exports = compiler;
