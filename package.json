@@ -1,9 +1,11 @@
 {
   "name": "wordpress-development",
-  "author": "Filippo <b4dnewz> Conti",
-  "version": "0.1.5",
   "description": "An advanced WordPress development setup.",
+  "version": "0.1.5",
+  "private": true,
+  "author": "Filippo <b4dnewz> Conti",
   "scripts": {
+    "preinstall": "node setup.js",
     "build": "webpack --config scripts/webpack.prod.js",
     "start": "webpack-dev-server --config scripts/webpack.dev.js"
   },

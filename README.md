@@ -9,6 +9,7 @@ This project aims to bring the best features of the latest tooling to Wordpress 
 * docker
 * docker-compose
 
+And optionally [dns-proxy-server](https://github.com/mageddo/dns-proxy-server) to resolve for you hostnames and have a better experience.
 
 ## Getting Started
 
