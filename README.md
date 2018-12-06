@@ -13,28 +13,40 @@ And optionally [dns-proxy-server](https://github.com/mageddo/dns-proxy-server) t
 
 ## Getting Started
 
-Clone the project from GitHub with this command:
+Download or clone the project from GitHub specifing a custom directory name for your project:
 
 ```bash
-git clone https://github.com/b4dnewz/webpack-wordpress.git
+git clone https://github.com/b4dnewz/webpack-wordpress.git <my-project>
 ```
 
-Optionally rename the folder than move inside it and __edit__ the `package.json` file adding your project name and author references, than install the project development dependencies using your favourite package manager:
+#### Project setup
+
+Than move inside the folder just created and install the development dependencies:
 
 ```bash
 npm install
 yarn install
 ```
 
-Meanwhile, create a `.env` file or rename the `.env.example` file and optionally edit the project configurations, to customize the database and wordpress instance.
+When installing for the first time it will ask you for the project name, which should be the same as the hostname you want to assign to the project. For example if the folder name is called __example.com__ the setup script will ask you to confirm the project name `example.com` than it will prepare for you the environment file and update the `package.json` according to the new name.
 
-When your project is ready, pull the required containers (if not already present) and start the WordPress instance by running docker compose:
+#### Running containers
+
+When your project is ready start the WordPress instance by running docker compose, it will pull the required images (_if not already present_) and start a dedicated network with the site and database instances.
 
 ```bash
 docker-compose up
 ```
 
-Once docker has done open a web browser and visit the address http://localhost:8080 or the port you specified in the configuration, and you will see the site, __hooray!__.
+Once docker has done and all containers has been created open a web browser and visit the address http://localhost:8080 or the port you specified in the configuration, and you will see the site, __hooray!__.
+
+If you are using [dns-proxy-server](https://github.com/mageddo/dns-proxy-server) as suggested, you can also reach the website using the __hostname__ (_project name_) you entered during the installation process, so based on the example before http://example.com should be reachable and should contain your WordPress site.
+
+If a new instance is started you __should see the WordPress installation page__, if not stop and remove the containers and repeat the steps from the beginning.
+
+Be sure to setup WordPress with the __correct url__ to avoid unwanted redirects, for example if you are not using the dns proxy setup the website on `localhost:port` otherwise on `hostname` where hostname is the name of your project specified in the `.env` file.
+
+#### Theme development
 
 If you want to benefit all the cool things offered for development, open another terminal and type:
 
@@ -43,7 +55,7 @@ npm run start
 yarn run start
 ```
 
-To start the development server than visit http://localhost:3000 or the port you specified in the configuration, you should see the proxied website with the __hot module replacemente__ enabled and livereload for HTML and PHP file changes.
+To start the development server than visit http://localhost:8088 or the port you specified in the configuration, you should see the proxied website with the __hot module replacemente__ enabled and livereload for HTML and PHP file changes.
 
 That's it.. if you __liked it__ leave __a star__ and talk to a friend about it.
 
