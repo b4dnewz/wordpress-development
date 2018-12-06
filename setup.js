@@ -25,8 +25,6 @@ rl.question(`What is your project name? (${dirName}) `, (answer) => {
 
   console.log('Creating the .env file from template')
   fs.copyFileSync(`${envFile}.example`, envFile)
-  console.log('Removing template file .env.example')
-  fs.unlinkSync(`${envFile}.example`)
 
   console.log('Updating .env variables using:', answer)
   const envVariables = fs.readFileSync(envFile, 'utf8')
