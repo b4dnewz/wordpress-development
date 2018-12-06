@@ -1,19 +1,21 @@
 version: '3'
 
 services:
-  wordpress:
+  wp:
     image: wordpress:${WORDPRESS_VERSION}
     restart: always
     hostname: ${HOSTNAME}
     depends_on:
-      - db
+      - wpdb
+    ports:
+      - ${PORT}:80
     volumes:
       - ./src/theme:/var/www/html/wp-content/themes/theme
     environment:
-      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_HOST: wpdb:3306
       WORDPRESS_DB_PASSWORD: wordpress
 
-  db:
+  wpdb:
     image: mysql:${MYSQL_VERSION}
     restart: always
     user: "1000:50"
@@ -25,9 +27,9 @@ services:
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
 
-  phpmyadmin:
+  admin:
     image: phpmyadmin/phpmyadmin
     restart: always
     hostname: admin.${HOSTNAME}
     depends_on:
-      - db
+      - wpdb
