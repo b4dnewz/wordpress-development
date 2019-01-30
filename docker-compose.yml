@@ -2,21 +2,22 @@ version: '3'
 
 services:
   wp:
-    image: wordpress:${WORDPRESS_VERSION}
+    image: wordpress:${WORDPRESS_VERSION-latest}
     restart: always
     hostname: ${HOSTNAME}
     depends_on:
       - wpdb
     ports:
-      - ${PORT}:80
+      - ${PORT-8080}:80
     volumes:
       - ./src/theme:/var/www/html/wp-content/themes/theme
+      - ./config/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     environment:
       WORDPRESS_DB_HOST: wpdb:3306
       WORDPRESS_DB_PASSWORD: wordpress
 
   wpdb:
-    image: mysql:${MYSQL_VERSION}
+    image: mysql:${MYSQL_VERSION-5.7}
     restart: always
     user: "1000:50"
     volumes:
