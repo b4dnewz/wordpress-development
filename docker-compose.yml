@@ -27,10 +27,3 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
-
-  admin:
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    hostname: admin.${HOSTNAME}
-    depends_on:
-      - wpdb
