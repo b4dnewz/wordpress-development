@@ -28,7 +28,7 @@ rl.question(`What is your project name? (${dirName}) `, (answer) => {
 
   console.log('Updating .env variables using:', answer)
   const envVariables = fs.readFileSync(envFile, 'utf8')
-  fs.writeFileSync(envFile, envVariables.replace('example.com', answer), 'utf8')
+  fs.writeFileSync(envFile, envVariables.replace('wordpress.development', answer), 'utf8')
 
   console.log('Updating package.json variables')
   const newPkg = Object.assign({}, pkg, {
