@@ -21,7 +21,7 @@ services:
     restart: always
     user: "1000:50"
     volumes:
-      - ./data:/var/lib/mysql:rw
+      - ./dbdata:/var/lib/mysql:rw
     environment:
       MYSQL_ROOT_PASSWORD: wordpress
       MYSQL_DATABASE: wordpress
