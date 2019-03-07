@@ -7,8 +7,7 @@
   "scripts": {
     "preinstall": "node setup.js",
     "build": "webpack --config scripts/webpack.prod.js",
-    "start": "webpack-dev-server --config scripts/webpack.dev.js",
-    "dev": "webpack --config scripts/webpack.prod.js --watch"
+    "start": "webpack-dev-server --config scripts/webpack.dev.js"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
