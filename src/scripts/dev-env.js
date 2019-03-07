@@ -1,5 +1,5 @@
-const HOSTNAME = process.env.HOSTNAME
-const DEVPORT = process.env.DEVPORT
+const HOSTNAME = process.env.HOSTNAME || 'localhost'
+const DEVPORT = process.env.DEVPORT || 8088
 const DEVSERVER = `localhost:${DEVPORT}`
 
 module.exports = document.addEventListener('DOMContentLoaded', function() {

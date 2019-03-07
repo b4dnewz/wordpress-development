@@ -1,16 +1,18 @@
-require('dotenv').config()
-
+const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 const compiler = require('./webpack.base').compiler;
+const env = require('dotenv').parse(
+  fs.readFileSync(path.resolve(__dirname, '../.env'))
+)
 
-const hostname = (process.env.HOSTNAME !== '')
-  ? `${process.env.HOSTNAME}`
-  : 'localhost'
-const port = (hostname === 'localhost')
-  ? `${(process.env.PORT || 8080)}`
-  : ''
-const devPort = process.env.DEVPORT || 8088
+const hostname = (env.HOSTNAME && env.HOSTNAME !== '') ?
+  `${env.HOSTNAME}` :
+  'localhost'
+const port = (hostname === 'localhost') ?
+  `${(env.PORT || 8080)}` :
+  ''
+const devPort = env.DEVPORT || 8088
 const computedHostname = `${hostname}:${port}`
 
 // Set proxy configurations to access WordPress
@@ -20,6 +22,16 @@ const proxyConfig = {
   changeOrigin: true,
   secure: false
 };
+
+// Override process.env variables
+// since they may be used in other files
+for (let k in env) {
+  if (env[k] === '') {
+    delete process.env[k]
+  } else {
+    process.env[k] = env[k]
+  }
+}
 
 // Ensure context is set to root folder
 compiler.context = path.join(__dirname, '../');
