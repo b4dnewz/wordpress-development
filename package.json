@@ -1,7 +1,7 @@
 {
   "name": "wordpress-development",
   "description": "An advanced WordPress development setup.",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": true,
   "author": "Filippo <b4dnewz> Conti",
   "scripts": {
