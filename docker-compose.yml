@@ -3,7 +3,6 @@ version: '3'
 services:
   wp:
     image: wordpress:${WORDPRESS_VERSION-latest}
-    restart: always
     hostname: ${HOSTNAME}
     depends_on:
       - wpdb
@@ -18,7 +17,6 @@ services:
 
   wpdb:
     image: mysql:${MYSQL_VERSION-5.7}
-    restart: always
     user: "1000:50"
     volumes:
       - ./dbdata:/var/lib/mysql:rw
